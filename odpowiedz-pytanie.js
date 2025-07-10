@@ -8,7 +8,7 @@ function onPageLoad()
     reloadButton.addEventListener("click", clearForm);
 
     var exerciceBody = document.getElementById("exercice-wrapper");
-    questionsToFind = [ "Znajdź pytania", "Tu parles quelles langues ?", "Tu parles allemand ?", "Tu as quels animaux ?", "Quel est ton métier ?", "Tu as combien d'enfants ?", "Quelle est ta profession ?", "Tu as quel âge ?", "Tu es de quelle nationalité ?", "Tu t'appelles comment ?", "Tu fais quoi dans la vie ?" ];
+    questionsToFind = [ "Znajdź pytania", "Tu parles quelles langues ?", "Tu parles allemand ?", "Tu as quels animaux ? | Tu as combien d'animaux ? | Tu as combien de chats ?", "Quel est ton métier ?", "Tu as combien d'enfants ?", "Quelle est ta profession ?", "Tu as quel âge ?", "Tu es de quelle nationalité ?", "Tu t'appelles comment ?", "Tu fais quoi dans la vie ?" ];
     answersProvided = [ "Używaj prostych pytań na *ty*", "Je parle anglais et polonais.", "Je ne parle pas allemand.", "J'ai deux chats", "Je suis médecin.", "J'ai deux enfants", "Je suis médecin.", "J'ai 53 ans.", "Je suis polonais.", "Je m'appelle Marcin.", "Je suis médecin." ];
     hints = [ "Questions de base", "angielski i polski", "Nie mówię po niemiecku", "Mam dwa koty", "lekarz", "2", "lekarz", "53", "Polak", "Marcin", "lekarz" ];
 
@@ -151,7 +151,7 @@ function onPageLoad()
             {
                 console.log("itemToCheck JSON:", JSON.stringify(itemToCheck));
                 console.log("answer JSON:", JSON.stringify(answers[k]));
-                if (itemToCheck.trim() !== answers[k].trim())
+                if (itemToCheck.replace(/[.!?]/g, "").trim() !== answers[k].replace(/[.!?]/g, "").trim())
                 {            
                     answerBad = true;
                     console.log("answer is bad")
